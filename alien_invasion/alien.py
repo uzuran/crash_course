@@ -11,16 +11,15 @@ class Alien(Sprite):
 
         # Load the alien image and set its rect attribute.
         self.image = pygame.image.load('images/luka.png')
-        self.my_alien = pygame.transform.scale(self.image, (50, 50))
-        self.rect = self.my_alien.get_rect()
+        self.rect = self.image.get_rect()
 
         # Start each new alien near the top left of the screen.
-        self.rect.x = self.rect.left
-        self.rect.y = self.rect.top
+        self.rect.x = self.rect.centerx
+        self.rect.y = self.rect.centery
 
         # Store the alien's exact position.
         self.x = float(self.rect.x)
 
     def blitme(self):
         """Draw the alien at its current location."""
-        self.screen.blit(self.my_alien, self.rect)
+        self.screen.blit(self.image, self.rect)
